@@ -1,5 +1,5 @@
-import React from 'react'
 import { NavLink, Outlet, Link } from 'react-router-dom'
+import Breadcrumbs from '../breadcrumbs/BreadCrumbs'
 
 function GlobalRoute() {
   return (
@@ -12,9 +12,9 @@ function GlobalRoute() {
             <NavLink to="about"><button>About</button></NavLink>
             <NavLink to="career"><button>Career</button></NavLink>
             <NavLink to="help"><button>Help</button></NavLink>
-          </div>
-          
+          </div>          
         </nav>
+        <Breadcrumbs/>    
       </header>
       <main>
         <Outlet />
