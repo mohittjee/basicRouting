@@ -1,4 +1,4 @@
-import { json, Link, Outlet, useLoaderData } from "react-router-dom"
+import { json, Link, Outlet, useLoaderData, useRouteError } from "react-router-dom"
 
 function Career() {
     const allcareer = useLoaderData()
@@ -22,7 +22,9 @@ function Career() {
                         </div>
                 )}</p>
             </Link>
-        ))}        
+        ))}       
+
+     
       
     </div>
   )
@@ -36,6 +38,7 @@ export const CareerLoader = async () =>{
     const res = await fetch('https://jsonplaceholder.typicode.com/users')
     if (!res.ok) {
       throw new Error('Failed to fetch Career data');
+      
     }
     return res.json()
 
