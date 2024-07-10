@@ -13,7 +13,7 @@ import GlobalRoute from '../Layouts/GlobalRouteLayout';
 import About from './pages/About';
 import Help from '../Layouts/HelpLayout';
 import FAQ from './pages/FAQ';
-import Contactme from './pages/contact';
+import Contactme, { contactAction } from './pages/contact';
 import ErrorPage from './ErrorDisplay/GlobalError';
 import Career, { CareerLoader } from './pages/Career';
 import CareerDetail, { CareerDetailLoader } from './pages/CareerDetail';
@@ -47,17 +47,17 @@ const myrouter = createBrowserRouter(
         { path: '*', element: <ErrorPage />, errorElement: <ErrorPage/> },
         { path: 'about', element: <About /> },
         { path: 'home', element: <Home /> },
-        { path: 'career', element: <CareerLayout />,
+        { path: 'career', element: <CareerLayout />, errorElement:<CareerError/>,
           children:[
             {index:true, element: <Career/>, loader:CareerLoader},
-            {path:':id', element: <CareerDetail/>, errorElement:<CareerError/>, loader:CareerDetailLoader}
+            {path:':id', element: <CareerDetail/>, loader:CareerDetailLoader}
           ],
         },
 
         { path: 'help', element: <Help />,
           children: [
             { path: 'faq', element: <FAQ /> },
-            { path: 'contactme', element: <Contactme /> },
+            { path: 'contactme', element: <Contactme />, action:contactAction },
           ],
         },
       ],
